@@ -1,5 +1,6 @@
 <?php
-
+use App\Enums\FakeUserTitle;
+use App\Enums\FakeUserGender;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,10 +14,10 @@ return new class extends Migration
     {
         Schema::create('fake_users', function (Blueprint $table) {
             $table->id();
-            $table->enum('title',['Mr','Mrs','Ms']);
+            $table->enum('title', array_column(FakeUserTitle::cases(), 'value'))->index();
             $table->string('first_name');
             $table->string('last_name');
-            $table->enum('gender',['male','female']);
+            $table->enum('gender', array_column(FakeUserGender::cases(), 'value'))->index();
             $table->string('email')->unique();
             $table->string('username')->unique();
             $table->date('date_of_birth');
@@ -30,11 +31,11 @@ return new class extends Migration
             $table->string('address_country');
             $table->timestamps();
 
-            $table->index('first_name');
-            $table->index('last_name');
-            $table->index('email');
-            $table->index('nationality');
-            $table->index('username');
+            $table->fulltext('first_name');
+            $table->fulltext('last_name');
+            $table->fulltext('email');
+            $table->fulltext('nationality');
+            $table->fulltext('username');
             $table->index('created_at');
             $table->index('updated_at');
         });
