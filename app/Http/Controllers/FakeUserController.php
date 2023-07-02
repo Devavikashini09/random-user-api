@@ -7,12 +7,20 @@ use Illuminate\Http\Request;
 
 class FakeUserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-         //   index will return the 10 fake users details
-       $users = fakeUser::take(10)->get();
-        return response()->json($users);;
+        $results = $request->query('results', 10);
+        $gender = $request->query('gender');
+        $page = $request->query('page', 1);
 
+        $query = fakeUser::query();
+
+        if ($gender) {
+            $query->where('gender', $gender);
+        }
+
+        $users = $query->paginate($results, ['*'], 'page', $page);
+        return $users;
     }
 
 }
