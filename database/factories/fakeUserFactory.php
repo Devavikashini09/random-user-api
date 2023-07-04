@@ -19,7 +19,7 @@ class fakeUserFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' =>fake()->randomElement(array_column(FakeUserTitle::cases(), 'value')),
+            'title' => fake()->randomElement(array_column(FakeUserTitle::cases(), 'value')),
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'gender' => fake()->randomElement(array_column(FakeUserGender::cases(), 'value')),
@@ -37,6 +37,5 @@ class fakeUserFactory extends Factory
 
 
         ];
-
     }
 }
