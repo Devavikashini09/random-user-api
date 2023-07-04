@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\FakeUser>
  */
-class FakeUserFactory extends Factory
+class fakeUserFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,7 +19,7 @@ class FakeUserFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' =>fake()->randomElement(array_column(FakeUserTitle::cases(), 'value')),
+            'title' => fake()->randomElement(array_column(FakeUserTitle::cases(), 'value')),
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'gender' => fake()->randomElement(array_column(FakeUserGender::cases(), 'value')),
@@ -37,6 +37,5 @@ class FakeUserFactory extends Factory
 
 
         ];
-
     }
 }
