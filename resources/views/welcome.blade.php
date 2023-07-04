@@ -18,7 +18,7 @@
         <h2>How to use the API</h2>
         <p>
             To use the Random User API, you can make HTTP requests to the appropriate endpoints.
-            The base URL for the API is: <code>http://127.0.0.1:8000/api/fakeuser</code>
+            The base URL for the API is:<code>http://127.0.0.1:8000/api/fakeuser</code>
             For example, to retrieve a single user, you can make a GET request to:
             <code>http://127.0.0.1:8000/api/fakeuser?results=1</code>
         </p>
@@ -32,7 +32,7 @@
         <h2>Requesting Multiple Users</h2>
         <p>
             To request multiple users, you can specify the number of results in the query parameter "results". For example, to get 5 users, make a GET request to:
-            <code>http://127.0.0.1:8000/api/fakeuser?results=100</code>
+            <code>http://127.0.0.1:8000  /api/fakeuser?results=100</code>
         </p>
 
         <h2>Specifying a Gender</h2>

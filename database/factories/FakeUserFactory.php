@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\FakeUser>
  */
-class FakeUserFactory extends Factory
+class fakeUserFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -24,7 +24,7 @@ class FakeUserFactory extends Factory
             'last_name' => fake()->lastName(),
             'gender' => fake()->randomElement(array_column(FakeUserGender::cases(), 'value')),
             'email' => fake()->unique()->safeEmail(),
-            'username' => fake()->userName(),
+            'username' => fake()->unique()->userName(),
             'date_of_birth' => fake()->date(),
             'phone' => fake()->phoneNumber(),
             'nationality' => fake()->country(),
